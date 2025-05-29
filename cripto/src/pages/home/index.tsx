@@ -28,7 +28,7 @@ export function Home(){
 
     useEffect(() =>{
         function getData() {
-            fetch('http://localhost:3000/api/moedas')
+            fetch('https://cripcoin.onrender.com/api/moedas')
             .then(response => response.json())
             .then((data: DataProps) => {
                 let coinsData = data.coins.slice(0, 15);
