@@ -14,16 +14,14 @@ app.get('/api/moedas', async (req, res) => {
   try {
     
     if (symbol) {
-      
-      // Endereço se for rodar localmente: http://localhost:3000/api/moedas?key=${key}&symbol=${symbol}&pref=${pref}
       const response = await
-      axios.get(`https://coinlib.io/api/v1/coin?key=${key}&symbol=${symbol}&pref=${pref}`); //Mudar endereço
+      axios.get(`https://coinlib.io/api/v1/coin?key=${key}&symbol=${symbol}&pref=${pref}`); 
       return res.json(response.data);
     }
 
     
     const response = await 
-    axios.get(`https://coinlib.io/api/v1/coinlist?key=${key}&pref=${pref}`); //Mudar endereço
+    axios.get(`https://coinlib.io/api/v1/coinlist?key=${key}&pref=${pref}`);
     res.json(response.data);
   } catch (erro) {
     console.error('Erro no servidor:', erro.message);
