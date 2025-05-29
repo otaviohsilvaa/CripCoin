@@ -83,7 +83,7 @@ export function Detail(){
                 </p>
                 <p>
                     <strong>Volume:</strong> 
-                    <span className={parseFloat(detail?.delta_24h.replace('%', '').replace(',', '.')) >= 0 ? styles.profit : styles.loss}>
+                    <span className={detail?.delta_24h && parseFloat(detail?.delta_24h.replace('%', '').replace(',', '.')) >= 0 ? styles.profit : styles.loss}>
                         {detail?.delta_24h}</span> 
                 </p>
                 <p>
