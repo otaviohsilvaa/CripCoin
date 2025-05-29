@@ -26,9 +26,10 @@ export function Detail(){
 
     const navigate = useNavigate();
 
+    //Se for rodar local: http://localhost:3000
     useEffect (() => {
         function getData(){
-            fetch(`http://localhost:3000/api/moedas?pref=BRL&symbol=${cripto}`)
+            fetch(`https://cripcoin.onrender.com/api/moedas?pref=BRL&symbol=${cripto}`)
             .then(response => response.json())
             .then((data: CoinProp) => {
 
