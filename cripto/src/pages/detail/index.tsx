@@ -28,7 +28,7 @@ export function Detail(){
 
     useEffect (() => {
         function getData(){
-            fetch(`https://cripcoin.onrender.com/api/moedas?pref=BRL&symbol=${cripto}`)
+            fetch(`http://localhost:3000/api/moedas?pref=BRL&symbol=${cripto}`)
             .then(response => response.json())
             .then((data: CoinProp) => {
 
