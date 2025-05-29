@@ -12,19 +12,19 @@ app.get('/api/moedas', async (req, res) => {
   const { symbol, pref = 'BRL' } = req.query;
 
   try {
+    
     if (symbol) {
       
-      const resposta = await axios.get(
-        `https://coinlib.io/api/v1/coin?key=${key}&symbol=${symbol}&pref=${pref}`
-      );
-      return res.json(resposta.data);
+      // Endereço se for rodar localmente: http://localhost:3000/api/moedas?key=${key}&symbol=${symbol}&pref=${pref}
+      const response = await
+      axios.get(`https://coinlib.io/api/v1/coin?key=${key}&symbol=${symbol}&pref=${pref}`); //Mudar endereço
+      return res.json(response.data);
     }
 
     
-    const resposta = await axios.get(
-      `https://coinlib.io/api/v1/coinlist?key=${key}&pref=${pref}`
-    );
-    res.json(resposta.data);
+    const response = await 
+    axios.get(`https://coinlib.io/api/v1/coinlist?key=${key}&pref=${pref}`); //Mudar endereço
+    res.json(response.data);
   } catch (erro) {
     console.error('Erro no servidor:', erro.message);
     res.status(500).json({ error: 'Erro ao buscar dados da Coinlib' });

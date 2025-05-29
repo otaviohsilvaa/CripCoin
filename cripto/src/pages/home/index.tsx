@@ -26,6 +26,7 @@ export function Home(){
     const [inputValue, setInputValue] = useState("")
     const navigate = useNavigate();
 
+    
     useEffect(() =>{
         function getData() {
             fetch('http://localhost:3000/api/moedas')
