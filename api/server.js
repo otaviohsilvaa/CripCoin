@@ -3,8 +3,8 @@ const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
-const PORTA = 3000;
-const CHAVE = 'e184e369df5b2ff6';
+const port = process.env.PORT || 3000;
+const key = 'e184e369df5b2ff6';
 
 app.use(cors());
 
@@ -15,14 +15,14 @@ app.get('/api/moedas', async (req, res) => {
     if (symbol) {
       
       const resposta = await axios.get(
-        `https://coinlib.io/api/v1/coin?key=${CHAVE}&symbol=${symbol}&pref=${pref}`
+        `https://coinlib.io/api/v1/coin?key=${key}&symbol=${symbol}&pref=${pref}`
       );
       return res.json(resposta.data);
     }
 
     
     const resposta = await axios.get(
-      `https://coinlib.io/api/v1/coinlist?key=${CHAVE}&pref=${pref}`
+      `https://coinlib.io/api/v1/coinlist?key=${key}&pref=${pref}`
     );
     res.json(resposta.data);
   } catch (erro) {
@@ -31,6 +31,6 @@ app.get('/api/moedas', async (req, res) => {
   }
 });
 
-app.listen(PORTA, () => {
-  console.log(`Servidor rodando em http://localhost:${PORTA}`);
+app.listen(port, () => {
+  console.log(`Servidor rodando em http://localhost:${port}`);
 });
